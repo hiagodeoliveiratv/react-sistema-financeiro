@@ -8,6 +8,7 @@ import { getCurrentMonth, filterListByMonth } from './helpers/dateFilter';
 import { TableArea } from './components/TableArea';
 import { InfoArea } from './components/InfoArea';
 
+
 const App = ()=>{
 
     // A lista completa dos lucros/despesas
@@ -22,7 +23,24 @@ const App = ()=>{
 
     // Fico monitorando list e month, para que, assim que for alterado, eu altero o array de items
     useEffect(()=>{
+
         setFilteredList(filterListByMonth(list, currentMonth));
+
+        const income = filteredList.reduce((acc, item)=>{
+            if(!categories[item.category].expense)
+                return acc + item.value;
+            return acc;
+        }, 0);
+
+        const expense = filteredList.reduce((acc, item)=>{
+            if(categories[item.category].expense)
+                return acc + item.value;
+            return acc;
+        }, 0);
+
+        setIncome(income);
+        setExpense(expense);
+        
     }, [list, currentMonth]);
 
 

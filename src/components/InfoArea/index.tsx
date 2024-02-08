@@ -9,7 +9,7 @@ type Props = {
     expense: number;
 }
 
-export const InfoArea = ( { currentMonth, setCurrentMonth } : Props )=>{
+export const InfoArea = ( { currentMonth, setCurrentMonth, income, expense } : Props )=>{
 
     const handlePrevMonth = ()=>{
         let [ year, month ] = currentMonth.split('-');
@@ -26,6 +26,7 @@ export const InfoArea = ( { currentMonth, setCurrentMonth } : Props )=>{
     }
 
     return (
+
         <div className={styles.container}>
             <div className={styles.dateArea}>
                 <button onClick={handlePrevMonth}> {`<`} </button>
@@ -33,6 +34,35 @@ export const InfoArea = ( { currentMonth, setCurrentMonth } : Props )=>{
                 <button onClick={handleNextMonth}> {`>`} </button>
             </div>
             <div className={styles.resumeArea}>
+
+                          
+                <div
+                    className={styles.resumeItem}
+                    style={{
+                        color:'green'
+                    }}
+                    >
+                    <p>Entrada</p>
+                    <p>R$ {expense}</p>
+                </div>
+                <div
+                    className={styles.resumeItem}
+                    style={{
+                        color:'red'
+                    }}
+                >
+                    <p>Saída</p>
+                    <p>R$ {income}</p>
+                </div>
+                <div
+                    className={styles.resumeItem}
+                    style={{
+                        color: (expense - income < 0) ? 'red': 'green'
+                    }}
+                    >
+                    <p>Receita</p>
+                    <p>R$ {expense - income}</p>
+                </div>    
 
             </div>
         </div>
