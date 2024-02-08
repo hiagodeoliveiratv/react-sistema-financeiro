@@ -1,0 +1,29 @@
+.container {
+    margin-top: -30px;
+    background-color: #fff;
+    box-shadow: 0px 0px 5px #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+}
+
+.dateArea {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    align-items: center;
+}
+.dateArea button {
+    background-color: #7e18de;
+    height: 30px;
+    width: 50px;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.resumeArea {
+    flex: 2;
+}

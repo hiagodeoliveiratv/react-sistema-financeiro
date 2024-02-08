@@ -1,0 +1,14 @@
+.tr {
+
+}
+.tr td {
+    padding: 10px 0;
+}
+
+.category {
+    display: inline-block;
+    padding: 5px;
+    border-radius: 5px;
+    color: #fff;
+    text-align: center;
+}
